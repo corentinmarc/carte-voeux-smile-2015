@@ -1,0 +1,725 @@
+@charset "UTF-8";
+/*! normalize.css 2011-08-31T22:02 UTC · http://github.com/necolas/normalize.css */
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Corrects block display not defined in IE6/7/8/9 & FF3
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+
+/*
+ * Corrects inline-block display not defined in IE6/7/8/9 & FF3
+ */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/*
+ * Prevents modern browsers from displaying 'audio' without controls
+ */
+audio:not([controls]) {
+  display: none;
+}
+
+/*
+ * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
+ * Known issue: no IE6 support
+ */
+[hidden] {
+  display: none;
+}
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+ *    http://clagnut.com/blog/348/#c790
+ * 2. Keeps page centred in all browsers regardless of content height
+ * 3. Prevents iOS text size adjust after orientation change, without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+html {
+  font-size: 100%;
+  /* 1 */
+  overflow-y: scroll;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 3 */
+  -ms-text-size-adjust: 100%;
+  /* 3 */
+}
+
+/*
+ * Addresses margins handled incorrectly in IE6/7
+ */
+body {
+  margin: 0;
+}
+
+/* 
+ * Addresses font-family inconsistency between 'textarea' and other form elements.
+ */
+body,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+}
+
+/* =============================================================================
+   Links
+   ========================================================================== */
+a {
+  color: #00e;
+}
+
+a:visited {
+  color: #551a8b;
+}
+
+/*
+ * Addresses outline displayed oddly in Chrome
+ */
+a:focus {
+  outline: 0;
+}
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers
+ * people.opera.com/patrickl/experiments/keyboard/test
+ */
+a:hover,
+a:active {
+  outline: 0;
+}
+
+/* =============================================================================
+   Typography
+   ========================================================================== */
+/*
+ * Addresses styling not present in IE7/8/9, S5, Chrome
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/*
+ * Addresses style set to 'bolder' in FF3/4, S4/5, Chrome
+*/
+b,
+strong {
+  font-weight: bold;
+}
+
+blockquote {
+  margin: 1em 40px;
+}
+
+/*
+ * Addresses styling not present in S5, Chrome
+ */
+dfn {
+  font-style: italic;
+}
+
+/*
+ * Addresses styling not present in IE6/7/8/9
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/*
+ * Corrects font family set oddly in IE6, S4/5, Chrome
+ * en.wikipedia.org/wiki/User:Davidgothberg/Test59
+ */
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+}
+
+/*
+ * Improves readability of pre-formatted text in all browsers
+ */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/*
+ * 1. Addresses CSS quotes not supported in IE6/7
+ * 2. Addresses quote property not supported in S4
+ */
+/* 1 */
+q {
+  quotes: none;
+}
+
+/* 2 */
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+small {
+  font-size: 75%;
+}
+
+/*
+ * Prevents sub and sup affecting line-height in all browsers
+ * gist.github.com/413930
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* =============================================================================
+   Lists
+   ========================================================================== */
+ul,
+ol {
+  margin: 1em 0;
+  padding: 0 0 0 40px;
+}
+
+dd {
+  margin: 0 0 0 40px;
+}
+
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * 1. Removes border when inside 'a' element in IE6/7/8/9, F3
+ * 2. Improves image quality when scaled in IE7
+ *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */
+img {
+  border: 0;
+  /* 1 */
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+}
+
+/*
+ * Corrects overflow displayed oddly in IE9 
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* =============================================================================
+   Figures
+   ========================================================================== */
+/*
+ * Addresses margin not present in IE6/7/8/9, S5, O11
+ */
+figure {
+  margin: 0;
+}
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+/*
+ * Corrects margin displayed oddly in IE6/7
+ */
+form {
+  margin: 0;
+}
+
+/*
+ * Define consistent margin and padding
+ */
+fieldset {
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/*
+ * 1. Corrects color not being inherited in IE6/7/8/9
+ * 2. Corrects alignment displayed oddly in IE6/7
+ */
+legend {
+  border: 0;
+  /* 1 */
+  *margin-left: -7px;
+  /* 2 */
+}
+
+/*
+ * 1. Corrects font size not being inherited in all browsers
+ * 2. Addresses margins set differently in IE6/7, F3/4, S5, Chrome
+ * 3. Improves appearance and consistency in all browsers
+ */
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  vertical-align: baseline;
+  /* 3 */
+  *vertical-align: middle;
+  /* 3 */
+}
+
+/*
+ * 1. Addresses FF3/4 setting line-height using !important in the UA stylesheet
+ * 2. Corrects inner spacing displayed oddly in IE6/7
+ */
+button,
+input {
+  line-height: normal;
+  /* 1 */
+  *overflow: visible;
+  /* 2 */
+}
+
+/*
+ * Corrects overlap and whitespace issue for buttons and inputs in IE6/7
+ * Known issue: reintroduces inner spacing
+ */
+table button,
+table input {
+  *overflow: auto;
+}
+
+/*
+ * 1. Improves usability and consistency of cursor style between image-type 'input' and others
+ * 2. Corrects inability to style clickable 'input' types in iOS
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  /* 1 */
+  -webkit-appearance: button;
+  /* 2 */
+}
+
+/*
+ * 1. Addresses box sizing set to content-box in IE8/9
+ * 2. Addresses excess padding in IE8/9
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/*
+ * 1. Addresses appearance set to searchfield in S5, Chrome
+ * 2. Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof)
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/*
+ * Corrects inner padding displayed oddly in S5, Chrome on OSX
+ */
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+ * Corrects inner padding and border displayed oddly in FF3/4
+ * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*
+ * 1. Removes default vertical scrollbar in IE6/7/8/9
+ * 2. Improves readability and alignment in all browsers
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* =============================================================================
+   Tables
+   ========================================================================== */
+/* 
+ * Remove most spacing between table cells
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+@font-face {
+  font-family: 'berkshire_swashregular';
+  src: url("../font/berkshireswash-regular-webfont.eot");
+  src: url("../font/berkshireswash-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../font/berkshireswash-regular-webfont.woff2") format("woff2"), url("../font/berkshireswash-regular-webfont.woff") format("woff"), url("../font/berkshireswash-regular-webfont.ttf") format("truetype"), url("../font/berkshireswash-regular-webfont.svg#berkshire_swashregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'oswaldbold';
+  src: url("../font/oswald-bold-webfont.eot");
+  src: url("../font/oswald-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../font/oswald-bold-webfont.woff2") format("woff2"), url("../font/oswald-bold-webfont.woff") format("woff"), url("../font/oswald-bold-webfont.ttf") format("truetype"), url("../font/oswald-bold-webfont.svg#oswaldbold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'oswaldlight';
+  src: url("../font/oswald-light-webfont.eot");
+  src: url("../font/oswald-light-webfont.eot?#iefix") format("embedded-opentype"), url("../font/oswald-light-webfont.woff2") format("woff2"), url("../font/oswald-light-webfont.woff") format("woff"), url("../font/oswald-light-webfont.ttf") format("truetype"), url("../font/oswald-light-webfont.svg#oswaldlight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'oswaldregular';
+  src: url("../font/oswald-regular-webfont.eot");
+  src: url("../font/oswald-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../font/oswald-regular-webfont.woff2") format("woff2"), url("../font/oswald-regular-webfont.woff") format("woff"), url("../font/oswald-regular-webfont.ttf") format("truetype"), url("../font/oswald-regular-webfont.svg#oswaldregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'noteworthylight';
+  src: url("../font/noteworthy-webfont.eot");
+  src: url("../font/noteworthy-webfont.eot?#iefix") format("embedded-opentype"), url("../font/noteworthy-webfont.woff2") format("woff2"), url("../font/noteworthy-webfont.woff") format("woff"), url("../font/noteworthy-webfont.ttf") format("truetype"), url("../font/noteworthy-webfont.svg#noteworthylight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'noteworthybold';
+  src: url("../font/noteworthy-bold-webfont.eot");
+  src: url("../font/noteworthy-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../font/noteworthy-bold-webfont.woff2") format("woff2"), url("../font/noteworthy-bold-webfont.woff") format("woff"), url("../font/noteworthy-bold-webfont.ttf") format("truetype"), url("../font/noteworthy-bold-webfont.svg#noteworthybold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.cf:before, .cf:after {
+  content: "";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  zoom: 1;
+}
+
+html {
+  background: #000;
+  overflow-x: hidden;
+}
+
+html, body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #ec6608;
+  color: #fff;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, Arial, sans-serif;
+}
+
+.full-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  text-align: left;
+  display: inline-block;
+  height: 70vh;
+  margin-top: 50px !important;
+  margin-top: 15vh !important;
+}
+
+.step_1 {
+  background: #ec6608;
+}
+.step_1 * {
+  line-height: 1em;
+  margin: 0;
+}
+.step_1 .el1 {
+  font-size: 65px;
+  font-size: 10vh;
+  margin-left: 25vh;
+  font-family: "noteworthylight", cursive;
+}
+.step_1 .el2 {
+  font-size: 90px;
+  font-size: 14.5vh;
+  font-style: italic;
+  font-weight: bold;
+}
+.step_1 .el3 {
+  font-size: 42px;
+  font-size: 7.5vh;
+  font-family: "berkshire_swashregular", cursive;
+  text-align: right;
+  margin-right: 8vh;
+}
+.step_1 .el4 {
+  font-size: 86px;
+  font-size: 14vh;
+  font-family: "oswaldbold", fantasy;
+  text-transform: uppercase;
+  text-align: right;
+  margin-right: 3vh;
+}
+
+.logo-smile {
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  margin-top: 2%;
+  margin-top: 5vh;
+  height: 8vh;
+  max-height: 40px;
+}
+
+.step_2 {
+  color: #56707d;
+  background: white url(data:image/png;base64,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) repeat 0 0;
+}
+.step_2 .volet {
+  height: 50vh;
+  width: 100%;
+  width: 100vw;
+  position: absolute;
+  background: white url(data:image/png;base64,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) repeat 0 0;
+  font-size: 36px;
+  font-size: 6vh;
+  font-family: "noteworthybold", cursive;
+}
+.step_2 .volet-1 {
+  height: 20vh;
+  top: 0;
+}
+.step_2 .volet-1 .year {
+  position: relative;
+  top: 5vh;
+  left: 2vh;
+}
+.step_2 .volet-1__container {
+  display: block;
+  width: 100%;
+  height: 20vh;
+  position: absolute;
+  bottom: 0;
+}
+.step_2 .volet-2 {
+  height: 13vh;
+  bottom: 0;
+}
+.step_2 .volet-2 .accolade {
+  top: -5vh;
+}
+.step_2 .accolade {
+  display: block;
+  position: absolute;
+  left: 50%;
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  font-family: "berkshire_swashregular", cursive;
+  font-size: 60px;
+  font-size: 12vh;
+}
+
+.step_2__main-img {
+  margin-top: 20vh;
+  height: 65vh;
+  max-height: 800px;
+}
+
+.step_3 {
+  background: #ec6608;
+}
+.step_3 * {
+  line-height: 1em;
+  margin: 0;
+}
+.step_3 .container {
+  margin-top: 100px !important;
+  margin-top: 27vh !important;
+}
+.step_3 .el1 {
+  font-size: 92px;
+  font-size: 15.5vh;
+  font-family: "berkshire_swashregular", cursive;
+}
+.step_3 .el2 {
+  font-size: 103px;
+  font-size: 17.5vh;
+  text-transform: uppercase;
+  font-family: "oswaldbold", fantasy;
+  margin-left: 28vh;
+}
+.step_3 .el3 {
+  font-size: 38px;
+  font-size: 7vh;
+  font-family: "noteworthylight", cursive;
+  text-align: center;
+}
+.step_3 .el3 a {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, Arial, sans-serif;
+  color: inherit;
+  text-decoration: none;
+  -moz-transition: font-size, 0.2s;
+  -o-transition: font-size, 0.2s;
+  -webkit-transition: font-size, 0.2s;
+  transition: font-size, 0.2s;
+}
+.step_3 .el3 a:hover {
+  font-size: 42px;
+  font-size: 7.5vh;
+}
+
+.csstransforms3d body {
+  background: #000;
+}
+.csstransforms3d .perspective {
+  -moz-perspective: 15000000000px;
+  -webkit-perspective: 15000000000px;
+  perspective: 15000000000px;
+  -moz-perspective-origin: 50% 50%;
+  -webkit-perspective-origin: 50% 50%;
+  perspective-origin: 50% 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.csstransforms3d .container--3d {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transition: all, 1s;
+  -o-transition: all, 1s;
+  -webkit-transition: all, 1s;
+  transition: all, 1s;
+}
+.csstransforms3d .container--3d.step2 {
+  -moz-transform: rotateY(-90deg) translateZ(0vw);
+  -ms-transform: rotateY(-90deg) translateZ(0vw);
+  -webkit-transform: rotateY(-90deg) translateZ(0vw);
+  transform: rotateY(-90deg) translateZ(0vw);
+}
+.csstransforms3d .step_1 {
+  position: absolute;
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.csstransforms3d .step_2 {
+  position: absolute;
+  -moz-transform: rotateY(90deg) translateX(100vw);
+  -ms-transform: rotateY(90deg) translateX(100vw);
+  -webkit-transform: rotateY(90deg) translateX(100vw);
+  transform: rotateY(90deg) translateX(100vw);
+  -moz-transform-origin: top right;
+  -ms-transform-origin: top right;
+  -webkit-transform-origin: top right;
+  transform-origin: top right;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.csstransforms3d .step_3 {
+  position: absolute;
+  top: 100vh;
+  -moz-transform: rotateY(90deg) translateX(100vw);
+  -ms-transform: rotateY(90deg) translateX(100vw);
+  -webkit-transform: rotateY(90deg) translateX(100vw);
+  transform: rotateY(90deg) translateX(100vw);
+  -moz-transform-origin: top right;
+  -ms-transform-origin: top right;
+  -webkit-transform-origin: top right;
+  transform-origin: top right;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
