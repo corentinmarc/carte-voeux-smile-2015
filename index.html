@@ -15,32 +15,44 @@
 </head>
 
 <body>
-    <div class="perspective">
-        <div class="container--3d">
-            <div class="full-screen step_1 cf">
-                <img src="images/logo-smile.png" class="logo-smile" alt="Logo Smile"/>
-                <div class="container cf">
-                    <p class="el1">Avec</p>
-                    <p class="el2">l'open source,</p>
-                    <p class="el3">vous n'avez encore</p>
-                    <p class="el4">rien vu...</p>
-                </div>
-            </div>
-            <div class="full-screen step_2 cf">
-                <div class="volet volet-1">
-                    <div class="volet-1__container">
-                        <span class="year">En 2015</span>
-                        <span class="accolade">{</span>
+    <div class="fixed">
+        <div class="lang-container"><span>FR</span><span class="separator"></span><a href="#">EN</a></div>
+        <div class="perspective">
+            <div class="container--3d">
+                <div class="full-screen step_1 cf">
+                    <div class="scroll-advice"><span class="smile-scroll"></span><span class="text">Scroll</span></div>
+                    <img src="images/logo-smile.png" class="logo-smile" alt="Logo Smile"/>
+                    <div class="step-container cf">
+                        <p class="el1"><span class="smile-wind_left"></span>Avec</p>
+                        <p class="el2"><span class="smile-exclam_left"></span>l'open source,<span class="smile-exclam_right"></span></p>
+                        <p class="el3">vous n'avez encore</p>
+                        <p class="el4"><span class="smile-leaf_left"></span><span class="smile-glasses step_1__smile-glasses"></span>Rien vu...<span class="smile-wind_right"></span></p>
                     </div>
                 </div>
-                <img src="images/step2.png" alt="Meilleurs voeux Smile" class="step_2__main-img"/>
-                <div class="volet volet-2"><span class="accolade">}</span></div>
-            </div>
-            <div class="full-screen step_3 cf">
-                <div class="container cf">
-                    <p class="el1">Meilleurs</p>
-                    <p class="el2">voeux</p>
-                    <p class="el3">et à bientôt sur <a href="http://www.smile.fr" target="_blank" title="Voir le site de Smile">www.smile.fr</a></p>
+                <div class="full-screen step_2 cf">
+                    <div class="volet volet-1">
+                        <div class="volet-1__container">
+                            <span class="title">Innovation, flexibilité, performance...</span>
+                            <span class="subtitle">Des milliers de possibilités s'offrent à vous:</span>
+                            <span class="smile-bracket_up"></span>
+                        </div>
+                    </div>
+                    <div class="step_2__container-img">
+                        <img src="images/step2.png" alt="Meilleurs voeux Smile" class="step_2__main-img"/>
+                    </div>
+                    <div class="volet volet-2">
+                        <span class="smile-bracket_down"></span>
+                        <span class="text"><img src="images/smile.png" class="smile-text" alt="Smile" />
+                        vous accompagne sur vos projets les plus ambitieux</span>
+                    </div>
+                </div>
+                <div class="full-screen step_3 cf">
+                    <div class="step-container cf">
+                        <p class="el1"><span class="smile-wind_left"></span>Meilleurs</p>
+                        <p class="el2">voeux<span class="smile-exclam_right"></span></p>
+                        <p class="el3">et à bientôt sur <a href="http://www.smile.fr" target="_blank" title="Voir le site de Smile">www.smile.fr</a></p>
+                        <div class="el4"><span class="smile-leaf_left"></span><span class="smile-leaf_right"></span></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -48,68 +60,132 @@
 
     <script type="text/javascript">
         jQuery(function($){
+            var windowWidth = $(window).width();
+            var windowHeight = $(window).height();
+            var step = 1;
+
             TweenMax.selector = jQuery;
 
-            var step1Anim = TweenMax
-                    .fromTo('.step_1 .container',.7, {scale: "0.1", autoAlpha: "0"}, {scale: "1", autoAlpha: "1", ease: "easeInExpo", paused: true});
+            /********************************
+                STEP1 ANIMATION
+             ********************************/
+            var step1GlassesAppear = new TimelineMax({smoothChildTiming: true});
+            step1GlassesAppear.add(TweenMax.fromTo('.step_1__smile-glasses', 0.5, {autoAlpha: 0}, {autoAlpha: 1, scale: 1, ease:"easeNoneLinear"}));
+
+            var step1GlassesMove = new TimelineMax({smoothChildTiming: true});
+            step1GlassesMove.add(TweenMax.to('.step_1__smile-glasses', 0.3, { scale: 1.1}))
+                    .add(TweenMax.to('.step_1__smile-glasses', 0.1, {rotation:-20, scale: 1.1}))
+                    .add(TweenMax.to('.step_1__smile-glasses', 0.1, {rotation:20}))
+                    .add(TweenMax.to('.step_1__smile-glasses', 0.1, {rotation:-20}))
+                    .add(TweenMax.to('.step_1__smile-glasses', 0.1, {rotation:20}))
+                    .add(TweenMax.to('.step_1__smile-glasses', 0.1, {rotation:0, scale: 0.9}))
+                    .add(TweenMax.to('.step_1__smile-glasses', 0.1, {scale: 1}));
+
+            var step1WindAnim = new TimelineMax();
+            step1WindAnim.append([TweenMax.fromTo('.step_1 .el1 .smile-wind_left', 2, {autoAlpha: 0, top: 0, left: 0, fontSize: '0vh', ease:"easeInExpo"}, {autoAlpha: 1, top: '-7vh', left: '-14vh', fontSize: '10vh', ease:"easeOutExpo"}),
+                                TweenMax.fromTo('.step_1 .el4 .smile-wind_right', 2, {autoAlpha: 0, bottom: 0, right: 0, fontSize: '0vh', ease:"easeInExpo"}, {autoAlpha: 1, bottom: '-11vh', right: '-12vh', fontSize: '10vh', ease:"easeOutExpo"})])
+                        .add(TweenMax.fromTo('.step_1 .el1 .smile-wind_left, .step_1 .el4 .smile-wind_right', 1, {rotation: 5}, {rotation: -5, repeat: -1, yoyo: true}));
+
+            var step1ExclamSparklingAnim = new TimelineMax();
+            step1ExclamSparklingAnim.add(TweenMax.fromTo('.step_1 .el2 .smile-exclam_left, .step_1 .el2 .smile-exclam_right',.2, { autoAlpha:1, scale: 1.25}, {autoAlpha: 1, scale: 1, repeat: 3, repeatDelay: .1, yoyo: false, ease:"easeInExpo"}));
+
+            var step1ExclamAnim = new TimelineMax();
+            step1ExclamAnim.add(TweenMax.fromTo('.step_1 .el2 .smile-exclam_left, .step_1 .el2 .smile-exclam_right',1, { autoAlpha:0, scale: 5 }, {autoAlpha: 1, ease:"easeOutExpo", scale: 1}))
+//                    .add(step1ExclamSparklingAnim.repeat(-1).repeatDelay(3))
+            ;
+
+            var step1ScrollAppear = new TweenMax
+                    .fromTo('.scroll-advice', 0.5, {css: {autoAlpha: 0}}, {css: {autoAlpha: 1}});
+
+            var step1Anim =  new TimelineMax();
+            step1Anim.add(TweenMax.fromTo('body', .5, {css: {opacity: 0}}, {css: {opacity: 1}, ease: "easeInQuad"}))
+                    .add(TweenMax.fromTo('.logo-smile', .5, {css: {top: "-15vh"}}, {css: {top: "0vh"}, ease: "easeInExpo"}))
+                    .add( TweenMax.fromTo('.step_1 .step-container',.7, {scale: "0.1", autoAlpha: "0"}, {scale: "1", autoAlpha: "1", ease: "easeInExpo"}))
+                    .append([step1WindAnim, step1ExclamAnim, step1GlassesAppear.delay(.5), step1ScrollAppear.delay(1)]);
 
 
-            // Issue on IE8 with vh unit
-            var logoAnim = TweenMax
-                    .fromTo('.logo-smile',
-                        .5,
-                        {css: {top: "-15vh"}},
-                        {css: {top: "0vh"}, ease: "easeInExpo", paused: true, onComplete: function(){step1Anim.resume()}});
-
-
-            var BackgroundApparition = TweenMax
-                    .fromTo('body',.5, {css: {opacity: 0}}, {css: {opacity: 1}, ease: "easeInQuad", onComplete: function(){logoAnim.resume()}});
-
-
+            /********************************
+                STEP2 ANIMATION
+             ********************************/
             var step2Anim = TweenMax
-                    .to('.container--3d', 1, {rotationY: -90});
+                    .to('.container--3d', 1, {rotationY: -90, ease:'easeNoneLinear'})
+                    .pause();
 
 
             // Issue on IE8 with vh unit
             voletAnim = new TimelineMax();
-            voletAnim.append( [TweenMax.fromTo('.volet-1',1, {css: {height: '50vh'}}, {css: {height: '20vh'}, ease: "easeOutBounce"}),
-                            TweenMax.fromTo('.volet-2',1, {css: {height: '50vh'}}, {css: {height: '13vh'}, ease: "easeOutBounce"})])
+            voletAnim.append( [TweenMax.fromTo('.volet-1',1, {css: {height: '50vh'}}, {css: {height: '25vh'}, ease: "easeOutBounce"}),
+                            TweenMax.fromTo('.volet-2',1, {css: {height: '50vh'}}, {css: {height: '25vh'}, ease: "easeOutBounce"}),
+                            TweenMax.fromTo('.step_2__container-img', 1, {css: {height: '0'}}, {css: {height: '50vh'}, ease: "easeOutBounce"})])
                     .pause();
 
-            var step3Anim = TweenMax
-                    .to('.step_3', 1, {top: 0});
 
-            // Animation 3D ou non
+             /********************************
+                STEP3 ANIMATION
+              ********************************/
+             var step3WindAnim = new TimelineMax();
+
+            var step3WindAppear = TweenMax.fromTo('.step_3 .smile-wind_left', 2, {autoAlpha: 0, top: 0, left: 0, fontSize: '0vh', ease:"easeInExpo"}, {autoAlpha: 1, top: '-14.5vh', left: '-5.5vh', fontSize: '14vh', ease:"easeOutExpo"});
+
+            var step3WindMove = TweenMax.fromTo('.step_3 .smile-wind_left', 1, {rotation: 5}, {rotation: -5, repeat: -1, yoyo: true});
+
+            var step3SubtitleAppear = TweenMax.fromTo('.step_3 .el3', 1, {rotationX: 90}, {rotationX: 0, ease: "easeOutBounce"});
+
+            var step3Leaf1Anim = TweenMax.fromTo('.step_3 .el4 .smile-leaf_right', 1, {autoAlpha: 0, rotation: -45}, {autoAlpha: 1,rotation: 0});
+            var step3Leaf2Anim = TweenMax.fromTo('.step_3 .el4 .smile-leaf_left', 1, {autoAlpha: 0, rotation: 45}, {autoAlpha: 1,rotation: 0});
+
+            var step3Anim = TweenMax
+                     .to('.step_3', 1, {top: 0});
+
+            /********************************
+                SCROLL ANIMATION
+              ********************************/
+            var controller = $.superscrollorama({
+                triggerAtCenter: false
+            });
+
             if(Modernizr.csstransforms3d){
                 initScrollAnimations3D();
             } else {
                 initScrollAnimations();
             }
             function initScrollAnimations3D(){
-                jQuery('body').height(5000);
+                $('body').height(5000);
 
-                var controller = $.superscrollorama({
-                    triggerAtCenter: false
-                });
-                controller.addTween(1000, step2Anim, 0);
-                controller.addTween(2000, voletAnim, 0);
-                controller.addTween(3000, step3Anim, 0);
+                controller.addTween(1, step1GlassesMove, 0);
+                controller.addTween(200, step2Anim, 500);
+                controller.addTween(1400, voletAnim, 0);
+                controller.addTween(2000, step3Anim, 500);
+                controller.addTween(2300, step3WindAppear, 0);
+                controller.addTween(3000, step3SubtitleAppear, 0);
+                controller.addTween(3100, step3Leaf1Anim, 0);
+                controller.addTween(3100, step3Leaf2Anim, 0);
             }
             function initScrollAnimations(){
-                var controller = $.superscrollorama({
-                    triggerAtCenter: false
-                });
+
+                controller.addTween(1, step1GlassesMove, 0);
                 controller.addTween('.step_2', voletAnim, 0);
             }
 
+            $('body').on('mousemove', function(e){
+                var ratioX = (e.screenX/windowWidth) - 1/2;
+                var ratioY = (e.screenY/windowHeight) - 1/2;
+                var amplitude = 0.02;
 
+                $('.step-container').css({top: ratioY*amplitude*windowHeight, left: ratioX*amplitude*windowWidth});
+            });
 
-            jQuery(document).on('keypress', function(){
+            $(document).on('keypress', function(){
                 test();
             });
+
+            $(window).on('resize', function(){
+                windowWidth = $(window).width();
+                windowHeight = $(window).height();
+            });
+
             function test(){
                 console.log('test');
-                voletAnim.play(0);
             }
 
         }(jQuery));

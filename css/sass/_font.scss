@@ -69,3 +69,61 @@
   font-style: normal;
 
 }
+@font-face {
+  font-family: 'smile2015';
+  src:url('../font/smile2015.eot?kwzqqh');
+  src:url('../font/smile2015.eot?#iefixkwzqqh') format('embedded-opentype'),
+  url('../font/smile2015.woff?kwzqqh') format('woff'),
+  url('../font/smile2015.ttf?kwzqqh') format('truetype'),
+  url('../font/smile2015.svg?kwzqqh#smile2015') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="smile-"], [class*=" smile-"] {
+  font-family: 'smile2015';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.smile-leaf_left:before {
+  content: "\e600";
+}
+.smile-leaf_right:before {
+  content: "\e601";
+}
+.smile-wind_right:before {
+  content: "\e602";
+}
+.smile-wind_left:before {
+  content: "\e603";
+}
+.smile-bracket_down:before {
+  content: "\e604";
+}
+.smile-bracket_up:before {
+  content: "\e605";
+}
+.smile-star:before {
+  content: "\e606";
+}
+.smile-exclam_left:before {
+  content: "\e607";
+}
+.smile-exclam_right:before {
+  content: "\e608";
+}
+.smile-glasses:before {
+  content: "\e609";
+}
+.smile-scroll:before {
+  content: "\e60a";
+}
