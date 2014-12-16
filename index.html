@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 	<meta charset="utf-8"> 
@@ -7,6 +7,7 @@
 	<title>Smile - Carte de voeux 2015</title>
 	
 	<link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="icon" type="image/ico" href="favicon.ico" />
 
     <script type="text/javascript" src="js/greensock/TweenMax.min.js"></script>
     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
@@ -17,10 +18,10 @@
 <body>
     <div class="fixed">
         <div class="lang-container"><span>FR</span><span class="separator"></span><a href="#">EN</a></div>
+        <div class="scroll-advice"><span class="smile-scroll"></span><span class="text">Scroll</span></div>
         <div class="perspective">
             <div class="container--3d">
                 <div class="full-screen step_1 cf">
-                    <div class="scroll-advice"><span class="smile-scroll"></span><span class="text">Scroll</span></div>
                     <img src="images/logo-smile.png" class="logo-smile" alt="Logo Smile"/>
                     <div class="step-container cf">
                         <p class="el1"><span class="smile-wind_left"></span>Avec</p>
@@ -114,11 +115,16 @@
 
             // Issue on IE8 with vh unit
             voletAnim = new TimelineMax();
-            voletAnim.append( [TweenMax.fromTo('.volet-1',1, {css: {height: '50vh'}}, {css: {height: '25vh'}, ease: "easeOutBounce"}),
-                            TweenMax.fromTo('.volet-2',1, {css: {height: '50vh'}}, {css: {height: '25vh'}, ease: "easeOutBounce"}),
-                            TweenMax.fromTo('.step_2__container-img', 1, {css: {height: '0'}}, {css: {height: '50vh'}, ease: "easeOutBounce"})])
+            voletAnim.add( [TweenMax.fromTo('.volet-1',1, {css: {height: '50vh'}}, {css: {height: '25vh'}, ease: "easeOutBounce"}),
+                TweenMax.fromTo('.volet-2',1, {css: {height: '50vh'}}, {css: {height: '25vh'}, ease: "easeOutBounce"}),
+                TweenMax.fromTo('.step_2__container-img', 1, {css: {height: '0'}}, {css: {height: '50vh'}, ease: "easeOutBounce"})], "+=1.5")
+//                    .add(TweenMax.fromTo('.scroll-advice',.2, {css: {marginBottom: 0}, scale: 1}, {css: {marginBottom: 50}, scale: 1.5}))
+//                    .add(TweenMax.to('.scroll-advice',.2, {css: {marginBottom: 0}, scale: 1}).reversed(false))
                     .pause();
 
+            scrollAnim = new TimelineMax();
+            scrollAnim.add(TweenMax.fromTo('.scroll-advice',.2, {css: {marginBottom: 0, scale: 1} }, {css: {marginBottom: 50, scale: 2}}), "+=2.5")
+                    .add(TweenMax.to('.scroll-advice',.2, {css: {marginBottom: 0, scale: 1}}));
 
              /********************************
                 STEP3 ANIMATION
@@ -132,7 +138,7 @@
             var step3SubtitleAppear = TweenMax.fromTo('.step_3 .el3', 1, {rotationX: 90}, {rotationX: 0, ease: "easeOutBounce"});
 
             var step3Leaf1Anim = TweenMax.fromTo('.step_3 .el4 .smile-leaf_right', 1, {autoAlpha: 0, rotation: -45}, {autoAlpha: 1,rotation: 0});
-            var step3Leaf2Anim = TweenMax.fromTo('.step_3 .el4 .smile-leaf_left', 1, {autoAlpha: 0, rotation: 45}, {autoAlpha: 1,rotation: 0});
+            var step3Leaf2Anim = TweenMax.fromTo('.step_3 .el4 .smile-leaf_left', 1, {autoAlpha: 0, rotation: 45}, {autoAlpha: 1,rotation: 0, onComplete: function(){$('body').addClass('end')}});
 
             var step3Anim = TweenMax
                      .to('.step_3', 1, {top: 0});
@@ -150,16 +156,17 @@
                 initScrollAnimations();
             }
             function initScrollAnimations3D(){
-                $('body').height(5000);
+                $('body').height(4000);
 
                 controller.addTween(1, step1GlassesMove, 0);
-                controller.addTween(200, step2Anim, 500);
-                controller.addTween(1400, voletAnim, 0);
-                controller.addTween(2000, step3Anim, 500);
-                controller.addTween(2300, step3WindAppear, 0);
-                controller.addTween(3000, step3SubtitleAppear, 0);
-                controller.addTween(3100, step3Leaf1Anim, 0);
-                controller.addTween(3100, step3Leaf2Anim, 0);
+                controller.addTween(200, step2Anim, 0);
+                controller.addTween(200, voletAnim, 0);
+                controller.addTween(200, scrollAnim, 0);
+                controller.addTween(1500, step3Anim, 0);
+                controller.addTween(1800, step3WindAppear, 0);
+                controller.addTween(2500, step3SubtitleAppear, 0);
+                controller.addTween(2600, step3Leaf1Anim, 0);
+                controller.addTween(2600, step3Leaf2Anim, 0);
             }
             function initScrollAnimations(){
 

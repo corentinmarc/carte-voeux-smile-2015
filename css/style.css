@@ -592,6 +592,79 @@ body {
   text-decoration: underline;
 }
 
+.scroll-advice {
+  position: fixed;
+  z-index: 10;
+  bottom: 10px;
+  right: 30px;
+  text-align: center;
+  font-family: "oswaldbold", fantasy;
+  text-transform: uppercase;
+  -moz-animation: scrollAnim 1s infinite;
+  -webkit-animation: scrollAnim 1s infinite;
+  animation: scrollAnim 1s infinite;
+}
+.scroll-advice .smile-scroll {
+  font-size: 30px;
+  display: inline-block;
+  border: 2px solid #fff;
+  -moz-border-radius: 45%;
+  -webkit-border-radius: 45%;
+  border-radius: 45%;
+  padding: 10px 0;
+}
+.scroll-advice .text {
+  margin-top: 15px;
+  display: block;
+  font-size: 3vh;
+}
+
+.end .scroll-advice {
+  display: none;
+}
+
+@-moz-keyframes scrollAnim {
+  0% {
+    opacity: 0.5;
+    bottom: 10px;
+  }
+  50% {
+    opacity: 1;
+    bottom: 15px;
+  }
+  100% {
+    opacity: 0.5;
+    bottom: 10px;
+  }
+}
+@-webkit-keyframes scrollAnim {
+  0% {
+    opacity: 0.5;
+    bottom: 10px;
+  }
+  50% {
+    opacity: 1;
+    bottom: 15px;
+  }
+  100% {
+    opacity: 0.5;
+    bottom: 10px;
+  }
+}
+@keyframes scrollAnim {
+  0% {
+    opacity: 0.5;
+    bottom: 10px;
+  }
+  50% {
+    opacity: 1;
+    bottom: 15px;
+  }
+  100% {
+    opacity: 0.5;
+    bottom: 10px;
+  }
+}
 .full-screen {
   position: relative;
   width: 100%;
@@ -702,73 +775,7 @@ body {
   bottom: -11vh;
   right: -12vh;
 }
-.step_1 .scroll-advice {
-  position: absolute;
-  bottom: 10px;
-  right: 30px;
-  text-align: center;
-  font-family: "oswaldbold", fantasy;
-  text-transform: uppercase;
-  -moz-animation: scrollAnim 1s infinite;
-  -webkit-animation: scrollAnim 1s infinite;
-  animation: scrollAnim 1s infinite;
-}
-.step_1 .scroll-advice .smile-scroll {
-  font-size: 30px;
-  display: inline-block;
-  border: 2px solid #fff;
-  -moz-border-radius: 45%;
-  -webkit-border-radius: 45%;
-  border-radius: 45%;
-  padding: 10px 0;
-}
-.step_1 .scroll-advice .text {
-  margin-top: 15px;
-  display: block;
-  font-size: 3vh;
-}
-@-moz-keyframes scrollAnim {
-  0% {
-    opacity: 0.5;
-    bottom: 10px;
-  }
-  50% {
-    opacity: 1;
-    bottom: 15px;
-  }
-  100% {
-    opacity: 0.5;
-    bottom: 10px;
-  }
-}
-@-webkit-keyframes scrollAnim {
-  0% {
-    opacity: 0.5;
-    bottom: 10px;
-  }
-  50% {
-    opacity: 1;
-    bottom: 15px;
-  }
-  100% {
-    opacity: 0.5;
-    bottom: 10px;
-  }
-}
-@keyframes scrollAnim {
-  0% {
-    opacity: 0.5;
-    bottom: 10px;
-  }
-  50% {
-    opacity: 1;
-    bottom: 15px;
-  }
-  100% {
-    opacity: 0.5;
-    bottom: 10px;
-  }
-}
+
 .logo-smile {
   position: relative;
   margin: 0 auto;

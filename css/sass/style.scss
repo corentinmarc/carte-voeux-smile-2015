@@ -72,6 +72,47 @@ body{
   }
 }
 
+.scroll-advice{
+  position: fixed;
+  z-index: 10;
+  bottom: 10px;
+  right: 30px;
+  text-align: center;
+  font-family: $oswaldbold;
+  text-transform: uppercase;
+  @include animation(scrollAnim 1s infinite);
+
+  .smile-scroll{
+    font-size: 30px;
+    display: inline-block;
+    border: 2px solid #fff;
+    @include border-radius(45%);
+    padding: 10px 0;
+  }
+  .text{
+    margin-top: 15px;
+    display: block;
+    font-size: 3vh;
+  }
+}
+.end .scroll-advice{
+  display: none;
+}
+@include keyframes(scrollAnim) {
+  0%{
+    @include opacity(.5);
+    bottom: 10px;
+  }
+  50%{
+    @include opacity(1);
+    bottom: 15px;
+  }
+  100%{
+    @include opacity(.5);
+    bottom: 10px;
+  }
+}
+
 .full-screen{
   position: relative;
   width: 100%;
@@ -181,42 +222,6 @@ body{
       font-style: normal;
       bottom: -11vh;
       right: -12vh;
-    }
-  }
-  .scroll-advice{
-    position: absolute;
-    bottom: 10px;
-    right: 30px;
-    text-align: center;
-    font-family: $oswaldbold;
-    text-transform: uppercase;
-    @include animation(scrollAnim 1s infinite);
-
-    .smile-scroll{
-      font-size: 30px;
-      display: inline-block;
-      border: 2px solid #fff;
-      @include border-radius(45%);
-      padding: 10px 0;
-    }
-    .text{
-      margin-top: 15px;
-      display: block;
-      font-size: 3vh;
-    }
-  }
-  @include keyframes(scrollAnim) {
-    0%{
-      @include opacity(.5);
-      bottom: 10px;
-    }
-    50%{
-      @include opacity(1);
-      bottom: 15px;
-    }
-    100%{
-      @include opacity(.5);
-      bottom: 10px;
     }
   }
 }
@@ -401,7 +406,6 @@ body{
   .container--3d{
     @include transform-style(preserve-3d);
     @include transform-origin(100%, 50%);
-    @include transition(all, 1s, linear);
   }
   .container--3d.step2 {
     @include transform(rotateY(-90deg) translateZ(0vw));
@@ -424,6 +428,5 @@ body{
     @include transform(rotateY(90deg) translateX(100vw));
     @include transform-origin(top, right);
     @include backface-visibility(hidden);
-    @include transition(all, 1s, linear)
   }
 }
